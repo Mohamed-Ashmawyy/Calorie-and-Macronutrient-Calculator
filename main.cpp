@@ -3,11 +3,8 @@
 #include <limits> // Required for numeric_limits
 #include <vector> // Used for returning multiple values from a function
 
-// Use the standard namespace to avoid writing std:: repeatedly
 using namespace std;
 
-// --- Function Prototypes ---
-// This tells the compiler that these functions exist and will be defined later.
 void displayWelcomeMessage();
 void getUserInfo(string &gender, int &age, double &height, double &weight);
 double getValidNumber(const string &prompt);
@@ -49,18 +46,11 @@ int main() {
 
 // --- Function Definitions ---
 
-/**
- * @brief Displays a welcome message to the user.
- */
+
 void displayWelcomeMessage() {
     cout << "--- Calorie and Macronutrient Calculator ---\n" << endl;
 }
 
-/**
- * @brief Prompts the user for a number and ensures the input is valid.
- * @param prompt The message to display to the user.
- * @return A valid double number entered by the user.
- */
 double getValidNumber(const string &prompt) {
     double value;
     cout << prompt;
@@ -72,13 +62,7 @@ double getValidNumber(const string &prompt) {
     return value;
 }
 
-/**
- * @brief Gathers personal information (gender, age, height, weight) from the user.
- * @param gender Reference to the gender string.
- * @param age Reference to the age integer.
- * @param height Reference to the height double.
- * @param weight Reference to the weight double.
- */
+
 void getUserInfo(string &gender, int &age, double &height, double &weight) {
     cout << "Enter your gender (male/female): ";
     cin >> gender;
@@ -94,10 +78,6 @@ void getUserInfo(string &gender, int &age, double &height, double &weight) {
     weight = getValidNumber("Enter your weight (kg): ");
 }
 
-/**
- * @brief Asks the user for their activity level and returns the corresponding multiplier.
- * @return The activity multiplier (e.g., 1.2 for sedentary).
- */
 double getActivityMultiplier() {
     int choice;
     cout << "\n--- Select Your Activity Level ---\n";
@@ -121,10 +101,6 @@ double getActivityMultiplier() {
     }
 }
 
-/**
- * @brief Calculates BMR using the Mifflin-St Jeor formula.
- * @return The calculated BMR value, or 0 if gender is invalid.
- */
 double calculateBMR(const string &gender, int age, double height, double weight) {
     if (gender == "male") {
         // Mifflin-St Jeor formula for men
@@ -168,4 +144,5 @@ void calculateAndDisplayMacros(double weight) {
     cout << "Fats: " << fatGrams << " g\n";
     cout << "Carbohydrates: " << carbGrams << " g\n";
 }
+
 
